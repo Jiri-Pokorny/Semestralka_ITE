@@ -18,4 +18,4 @@ def do_connect():
     print('Connected: ', sta_if.isconnected())
     print('network config:', sta_if.ifconfig())
 
-do_connect()
+#do_connect()
