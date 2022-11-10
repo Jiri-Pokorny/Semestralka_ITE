@@ -1,22 +1,60 @@
-from turtle import onclick
 import thermometer
-import wifi
-import publisher
-
-import paho.mqtt.client as mqtt
+#import wifi
+import wifi_home as wifi
+import publisher_micro as publisher
+import machine
+from machine import RTC
+import ntptime
 import time
-from json import json
-
-# WIFI connection
-wifi.do_connect()
+import json
+import network
+import sys
+import logger
 
 # variables
 team_name = 'black'
-client = publisher.init_client()
+rtc = machine.RTC()
+
+ntptime.settime()
+lastTimeSet = rtc.datetime()[4]
+
+wifi.do_connect()
+measurements = 6
 
 # Publish message
 while True:
-    temperature = thermometer.measure()
-    timestamp = str(time.now().isoformat())
-    message = json.dumps({'team_name': team_name, 'timestamp': timestamp, 'temperature': temperature})
-    publisher.send2broker(client, publisher.TOPIC, message)
+    try:
+        # get temperature
+        temperature = 0
+        for i in range(measurements):
+            temperature += thermometer.measure()
+            print("Measuring temperature...")
+            time.sleep(60/measurements)
+        temperature = temperature/measurements
+        # get time
+        now = rtc.datetime()
+        if lastTimeSet != now[4]:
+            try:
+                ntptime.settime()
+            except Exception as e:
+                logger.log("ntptime exception: ", e)
+                sys.exit()
+            lastTimeSet = now[4]
+            print("Clock synchronization...")
+        print("datetime: ",now)
+        #timestamp = "{}-{:0>2}-{:0>2}T{:0>2}:{:0>2}:{:0>2}.{:0>6}".format(now[0],now[1],now[2],(now[4])%24,now[5],now[6],now[7])
+        timestamp = "{year:0>4}-{month:0>2}-{day:0>2}T{hour:0>2}:{minute:0>2}:{second:0>2}.{millisecond:0>6}".format(year=now[0], month=now[1], day=now[2], hour=(now[4]), minute=now[5], second=now[6], millisecond=now[7])
+        #print('timestamp: ', timestamp)
+        #put together a message
+        message = json.dumps({'team_name': team_name, 'timestamp': timestamp, 'temperature': round(temperature, 2)})
+        # if not connected to the wifi, connect
+        wifi.do_connect()
+        # send the message
+        publisher.publish(message)
+        # wait for X seconds before looping
+    except Exception as e: 
+        logger.log("Main exception: ", e)
+        sys.exit()
+
+
+   
