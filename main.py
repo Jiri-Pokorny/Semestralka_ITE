@@ -15,11 +15,11 @@ import logger
 team_name = 'black'
 rtc = machine.RTC()
 
-ntptime.settime()
-lastTimeSet = rtc.datetime()[4]
-
 wifi.do_connect()
 measurements = 6
+
+ntptime.settime()
+lastTimeSet = rtc.datetime()[4]
 
 # Publish message
 while True:
@@ -37,7 +37,7 @@ while True:
             try:
                 ntptime.settime()
             except Exception as e:
-                logger.log("ntptime exception: ", e)
+                logger.log("ntptime exception: "+ str(e))
                 sys.exit()
             lastTimeSet = now[4]
             print("Clock synchronization...")
@@ -53,7 +53,7 @@ while True:
         publisher.publish(message)
         # wait for X seconds before looping
     except Exception as e: 
-        logger.log("Main exception: ", e)
+        logger.log("Main exception: "+ str(e))
         sys.exit()
 
 

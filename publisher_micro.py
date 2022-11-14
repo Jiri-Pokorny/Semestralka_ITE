@@ -17,5 +17,5 @@ def publish(data):
         client.connect()
         client.publish(TOPIC, data) 
     except Excepton as e:
-        logger.log("Publisher exception: ", e)
+        logger.log("Publisher exception: "+ str(e))
         sys.exit()

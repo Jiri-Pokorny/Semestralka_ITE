@@ -23,5 +23,5 @@ def measure():
             temp = ds.read_temp(rom)
         return temp
     except Excepton as e:
-        logger.log("Thermometer exception: ", e)
+        logger.log("Thermometer exception: "+ str(e))
         sys.exit()
