@@ -2,7 +2,6 @@ import time
 import machine
 import onewire, ds18x20
 import sys
-import logger
 
 # the device is on GPIO12
 dat = machine.Pin(5)
@@ -10,9 +9,12 @@ dat = machine.Pin(5)
 # create the onewire object
 ds = ds18x20.DS18X20(onewire.OneWire(dat))
 
-# scan for devices on the bus
-roms = ds.scan()
-print('found devices:', roms)
+try:
+    # scan for devices on the bus
+    roms = ds.scan()
+    print('found devices:', roms)
+except Exception as e:
+    machine.reset()
 
 def measure():
     try:
@@ -22,6 +24,5 @@ def measure():
         for rom in roms:
             temp = ds.read_temp(rom)
         return temp
-    except Excepton as e:
-        logger.log("Thermometer exception: "+ str(e))
-        sys.exit()
+    except Exception as e:
+        machine.reset()

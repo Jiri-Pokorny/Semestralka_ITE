@@ -2,7 +2,7 @@ from umqtt.simple import MQTTClient as mqtt
 from json import dumps as dumps_json
 import time
 import sys
-import logger
+import machine
 
 BROKER_IP = '147.228.124.230'
 BROKER_PORT = 1883
@@ -16,6 +16,5 @@ def publish(data):
         client = mqtt(CLIENT_ID, BROKER_IP,port=BROKER_PORT, user=BROKER_UNAME, password=BROKER_PASSWD)
         client.connect()
         client.publish(TOPIC, data) 
-    except Excepton as e:
-        logger.log("Publisher exception: "+ str(e))
-        sys.exit()
+    except Exception as e:
+        machine.reset()

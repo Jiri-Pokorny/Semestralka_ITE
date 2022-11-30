@@ -9,17 +9,19 @@ import time
 import json
 import network
 import sys
-import logger
 
 # variables
 team_name = 'black'
 rtc = machine.RTC()
+try:
+    wifi.do_connect()
+    measurements = 6
 
-wifi.do_connect()
-measurements = 6
-
-ntptime.settime()
-lastTimeSet = rtc.datetime()[4]
+    ntptime.settime()
+    lastTimeSet = rtc.datetime()[4]
+except Exception as e:
+    print(e)
+    sys.exit()
 
 # Publish message
 while True:
@@ -29,16 +31,12 @@ while True:
         for i in range(measurements):
             temperature += thermometer.measure()
             print("Measuring temperature...")
-            time.sleep(60/measurements)
+            time.sleep(55/measurements)
         temperature = temperature/measurements
         # get time
         now = rtc.datetime()
         if lastTimeSet != now[4]:
-            try:
-                ntptime.settime()
-            except Exception as e:
-                logger.log("ntptime exception: "+ str(e))
-                sys.exit()
+            ntptime.settime()
             lastTimeSet = now[4]
             print("Clock synchronization...")
         print("datetime: ",now)
@@ -52,9 +50,9 @@ while True:
         # send the message
         publisher.publish(message)
         # wait for X seconds before looping
-    except Exception as e: 
-        logger.log("Main exception: "+ str(e))
-        sys.exit()
+    except Exception as e:
+        machine.reset()
+
 
 
    

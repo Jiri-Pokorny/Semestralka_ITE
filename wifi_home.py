@@ -1,6 +1,7 @@
 import network
 import machine
-import logger
+import time
+import sys
 
 sta_if = network.WLAN(network.STA_IF)
 #ap_if = network.WLAN(network.AP_IF)
@@ -19,11 +20,11 @@ def do_connect():
             sta_if.active(True)
             sta_if.connect(SSID, key)
             if count > 100:
-                machine.reset()
+                sys.exit()
             count += 1
+            time.sleep(0.1)
         print('Connected: ', sta_if.isconnected())
-        #print('network config:', sta_if.ifconfig())
     except Exception as e:
-        logger.log("WiFi exception: "+str(e))
-        sys.exit()
+        machine.reset()
+    #print('network config:', sta_if.ifconfig())
 #do_connect()
