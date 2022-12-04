@@ -93,29 +93,11 @@
   <body>
   <article>
   <h1>ESP-Black</h1>
-    <form action="index.php" method="post">
+    <form action="192.168.4.1" method="get">
         <input id="ssid" type="text" name="ssid" placeholder="wifi ssid"><br>
         <input id="passwd" type="password" name="password" placeholder="password"><br>
         <button id="ok" type="submit" name="ok">SUBMIT</button>
     </form>
   </article>
   </body>
-  <?php
-      echo "PHP";
-      $host = "";
-      $port = 80;
-      set_time_limit(0);
-
-      $socket = socket_create(AF_INET, SOCK_STREAM, 0) or die("Could not create socket\n");
-      $result = socket_connect($socket, $host, $port) or die("Could not connect toserver\n");
-      echo "Socket connected";
-      if (isset($_POST["ok"])) {
-        $message = $_POST["ssid"] + " " + $_POST["password"];
-        echo $message;
-        socket_write($socket, $message, strlen($message)) or die("Could not send data to server\n");
-        $result = socket_read($socket, 1024) or die("Could not read server response\n");
-        echo "Reply From Server  :".$result;
-      }
-      socket_close($socket);
-    ?>
 </html>
