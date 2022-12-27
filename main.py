@@ -1,7 +1,6 @@
-import Thermometer
-#import wifi
-import Wifi
-import Publisher
+import thermometer
+import wifi
+import publisher
 import machine
 from machine import RTC
 import ntptime
@@ -18,9 +17,9 @@ class Main:
         self.TEAM = 'black'
         self.MEASUREMENTS = 6
         self.last_time_set = 0
-        self.thermometer = Thermometer.Thermometer()
-        self.wifi = Wifi.Wifi()
-        self.publisher = Publisher.Publisher()
+        self.thermometer = thermometer.Thermometer()
+        self.wifi = wifi.Wifi()
+        self.publisher = publisher.Publisher()
         self.rtc = machine.RTC()        
 
     def wifi_connect(self):

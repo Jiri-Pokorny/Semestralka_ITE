@@ -37,7 +37,7 @@ class Wifi:
                 self.sta_if.active(True)
                 self.sta_if.connect(self.SSID, self.KEY)
                 if count > 60:
-                    sys.exit()
+                    machine.reset()
                     # run AP and get wifi network info
                 count += 1
                 time.sleep(0.5)
