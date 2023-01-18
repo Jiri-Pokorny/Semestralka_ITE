@@ -1,8 +1,0 @@
-<div class="menu">
-  <ul>
-    <li><a href="index.html">Hlavní stránka</a></li>
-    <li><a href="Stat.html">Statistky</a></li>
-    <li><a href="Graph.html">Grafy</a></li>
-  </ul>
-
-  </div>
