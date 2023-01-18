@@ -28,7 +28,7 @@ from datetime import datetime
 BQ credentials
 '''
 
-bq_credentials =  service_account.Credentials.from_service_account_file('/Users/BS/Desktop/FAV/ITE/archetix-data-squad-5918f5b48840.json')
+bq_credentials =  service_account.Credentials.from_service_account_file('archetix-data-squad-5918f5b48840.json')
 client_bq = bigquery.Client(credentials=bq_credentials, project=bq_credentials.project_id)
 dataset_id = 'baru_skola'
 table_ref = client_bq.dataset(dataset_id).table('test_1')
