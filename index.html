@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang='cs'>
+  <head>
+    <title></title>
+    <meta charset='utf-8'>
+    <style>
+      body
+      {
+          text-align:center;
+          background:black;
+          color:white;
+      }
+      article
+      {
+          position:fixed;
+          min-width:100%;
+          min-height: 100%;
+          top:40%;
+      }
+      h1
+      {
+          font-size:100px;
+          margin:10px;
+          cursor:default;
+      }
+      header
+      {
+          font-size:70px;
+          position:fixed;
+          left:30%;
+          top:5%;
+          text-align:center;
+          padding:10px;
+          margin:30px;
+      }
+      #vratny_odkaz
+      {
+          position:fixed;
+          top:40%;
+          left:27%;
+          color:white;
+          font-size:50px;
+      }
+      table
+      {
+          border: none;
+        
+      }
+      th
+      {
+          border: none;
+          
+      }
+      td
+      {
+        border: none;
+        width:20px;
+        height:15px;
+      }
+      input
+      {
+          text-align:center;
+      }
+      #ssid, #passwd
+      {
+          border-radius:7px;
+          padding:15px;
+          margin:10px;
+          margin-bottom:20px;
+          font-size:20px;
+      }
+      button
+      {
+          border: none;
+          border-radius: 3px;
+          background: transparent;
+          color: white;
+          padding-left: 100px;
+          padding-right: 100px;
+          padding-top: 15px;
+          padding-bottom: 15px;
+          margin-top: 0px;
+          font-size: 20px;
+          cursor: pointer;
+      }
+      button:hover
+      {
+          background:rgb(89,89,89);
+          cursor:pointer;
+      }
+    </style>
+  </head>
+  <body>
+  <article>
+  <h1>ESP-Black</h1>
+    <form action="192.168.4.1" method="get">
+        <input id="ssid" type="text" name="ssid" placeholder="wifi ssid"><br>
+        <input id="passwd" type="password" name="password" placeholder="password"><br>
+        <button id="ok" type="submit" name="ok">SUBMIT</button>
+    </form>
+  </article>
+  </body>
+</html>
