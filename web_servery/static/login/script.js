@@ -3,7 +3,7 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles
       {
         "particles": {
           "number": {
-            "value": 75,
+            "value": 100,
             "density": {
               "enable": true,
               "value_area": 500

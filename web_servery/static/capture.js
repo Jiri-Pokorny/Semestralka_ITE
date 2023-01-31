@@ -98,21 +98,29 @@
           response = JSON.parse(xhr.response);
 
           faces = response.faces;
-          console.log(faces);
+          //console.log(faces);
 
           names = [];
           faces.forEach(face => names.push(face.name+" ("+Math.round(face.prob*100)+"%)"));
           names = names.join(", ")
-          console.log(names);
+          //console.log(names);
 
           results.innerHTML = names;
-          if(!names.includes("unknown")){
-		console.log("Authorized user");
-		document.cookie = "user="+names+"; secure";
-          	window.location.replace("https://sulis150.zcu.cz:55555");
-	  }else{
-	        console.log("Unknown user");
-          }
+	  const regex2 = /unknown \([0-9]{2}\%\)/;
+	  const regex = /unknown \([0-9]{2}\%\), unknown \([0-9]{2}\%\)/;
+	  var numberPattern = /\d+/g;
+	  nm = names.replace(regex, "");
+	  nm2 = nm.replace(regex2, "");
+	  nm1 = nm2.match( numberPattern );
+	  if(nm1 != null){
+	  	nm1 = nm1[0];
+  	  }
+	  console.log(nm1);
+	  if(nm1 >= 50){
+              	  console.log("Authorized user");
+		  document.cookie = "user="+names+"; secure";
+          	  window.location.replace("https://sulis150.zcu.cz:55555");
+	}
       }
     }
       
