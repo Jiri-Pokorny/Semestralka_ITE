@@ -9,10 +9,15 @@
 
 
 <body>
+    <!--nadpis webu-->
     <header>
-        <h1>KKY/ITE/BSOI -- BLACK</h1>
+        <h1>KKY/ITE/BSOI -- BLACK </h1>
+        <button type="button" class="logout" id="logoutB">Logout and delete cookie</button>
+        <button type="button" class="logout" id="logoutA">Back to login</button>
     </header>
     <main>
+        <script src="autologout.js"></script>
+        <!--menu na levé straně-->
         <div class="menu">
             <ul>
                 <li><a href="index.html">Hlavní stránka</a></li>
@@ -20,50 +25,67 @@
                 <li><a href="vyvoj.html">Vývojáři</a></li>
             </ul>
         </div>
-
+        <!--tabulka kde se vše zobrazuje-->
         <div class="mainframe">
-
-            <h1 id="nadpis">Aktuální stav všech ESP</h1>           
-            <div class="ESP">             
-                <div class="stavbox"><p id="BLACK" class="stav"> </p>
+            <!--zobrazení aktuálního stavu ESP
+                každý tým má svoje pole
+            -->
+            <h1 id="nadpis">Aktuální stav všech ESP</h1>
+            <div class="ESP">
+                <!--černý tým-->
+                <div class="stavbox">
+                    <p id="BLACK" class="stav"> </p>
+                    <!--reprezentace stavu ESP(červený ofline/ zelený online)-->
                     <svg width="50" height="50">
-                        <circle id="BLACK_SVG"cx="25" cy="25" r="20" stroke="black" stroke-width="4" fill="red" />
-                    </svg>
-                </div> 
-                <div class="stavbox"><p id="BLUE" class="stav"></p>
-                    <svg width="50" height="50">
-                        <circle id="BLUE_SVG"cx="25" cy="25" r="20" stroke="black" stroke-width="4" fill="red" />
-                    </svg>
-                </div>
-                <div class="stavbox"><p id="GREEN" class="stav"></p>
-                    <svg width="50" height="50">
-                        <circle id="GREEN_SVG"cx="25" cy="25" r="20" stroke="black" stroke-width="4" fill="red" />
+                        <circle id="BLACK_SVG" cx="25" cy="25" r="20" stroke="black" stroke-width="4" fill="red" />
                     </svg>
                 </div>
-                <div class="stavbox"><p id="YELLOW" class="stav"></p>
+                <!--modrýtým-->
+                <div class="stavbox">
+                    <p id="BLUE" class="stav"></p>
+                    <!--reprezentace stavu ESP(červený ofline/ zelený online)-->
                     <svg width="50" height="50">
-                        <circle id="YELLOW_SVG"cx="25" cy="25" r="20" stroke="black" stroke-width="4" fill="red" />
+                        <circle id="BLUE_SVG" cx="25" cy="25" r="20" stroke="black" stroke-width="4" fill="red" />
                     </svg>
                 </div>
-                <div class="stavbox"><p id="RED" class="stav"></p>
+                <!--zelený tým-->
+                <div class="stavbox">
+                    <p id="GREEN" class="stav"></p>
+                    <!--reprezentace stavu ESP(červený ofline/ zelený online)-->
                     <svg width="50" height="50">
-                        <circle id="RED_SVG"cx="25" cy="25" r="20" stroke="black" stroke-width="4" fill="red" />
+                        <circle id="GREEN_SVG" cx="25" cy="25" r="20" stroke="black" stroke-width="4" fill="red" />
+                    </svg>
+                </div>
+                <!--žlutý tým-->
+                <div class="stavbox">
+                    <p id="YELLOW" class="stav"></p>
+                    <!--reprezentace stavu ESP(červený ofline/ zelený online)-->
+                    <svg width="50" height="50">
+                        <circle id="YELLOW_SVG" cx="25" cy="25" r="20" stroke="black" stroke-width="4" fill="red" />
+                    </svg>
+                </div>
+                <!--červený tým-->
+                <div class="stavbox">
+                    <p id="RED" class="stav"></p>
+                    <!--reprezentace stavu ESP(červený ofline/ zelený online)-->
+                    <svg width="50" height="50">
+                        <circle id="RED_SVG" cx="25" cy="25" r="20" stroke="black" stroke-width="4" fill="red" />
                     </svg>
                 </div>
             </div>
-            <div>
-                <div class="Embed">
-                    <iframe width=100%;
-                            height=100%;
-                            Scrolling=no;
-                            src="https://datastudio.google.com/embed/reporting/211190e3-ad3c-4deb-a196-1200cec08691/page/PD46C"
-                            frameborder="0"
-                            allowFullScreen="true">
-                    </iframe>
-                </div>
+            <!--report dat od ESP-->
+            <div class="Embed">
+                <iframe width=100%;
+                        height=100%;
+                        Scrolling=no;
+                        src="https://datastudio.google.com/embed/reporting/211190e3-ad3c-4deb-a196-1200cec08691/page/PD46C"
+                        frameborder="0"
+                        allowFullScreen="true">
+                </iframe>
             </div>
         </div>
     </main>
     <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="logout.js"></script>
 </body>
 </html>

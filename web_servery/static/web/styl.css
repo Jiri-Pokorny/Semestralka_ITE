@@ -1,3 +1,4 @@
+/*nadpis webu*/
 header {
     font-size: 20px;
     text-align: center;
@@ -7,20 +8,49 @@ header {
     color: white;
     background-color: black;
 }
+.logout {
+    font-size: 20px;
+    color: white;
+    border: 4px solid white;
+    width:150px;
+    height:60px;
+    position:  absolute;
+    z-index: 2;
+    background: grey; 
+    cursor:pointer;
+   
+    }
 
+
+.logout a{
+    color: white;
+    text-decoration:none;
+    } 
+.logout:hover{
+     background:red;
+    }
+#logoutB {
+    top:20px;
+    right:170px;
+    
+    }   
+#logoutA {
+    top:20px;
+    right:10px;
+    
+    }    
+/*pozad� webu*/
 body {
     width: 100%;
     height: 100%;
     margin: 0;
-}
-body {
     background-color: grey;
     display: flex;
     flex-direction: column;
 }
 
 
-
+/*zobrazen� menu a mainframe*/
 main {
     flex: 2;
     display: flex;
@@ -29,7 +59,7 @@ main {
     margin-right: 0.5%;
 }
 
-
+/*tabulka menu*/
 .menu {
     min-width: 240px;
     max-height:650px;
@@ -87,7 +117,7 @@ ul li:hover{
     background:grey;
 }
 
-
+/*hlavn� tabulka*/
 .mainframe {
     margin-left: 0.5%;
     width: 85%;
@@ -101,6 +131,7 @@ ul li:hover{
     display: flex;
     flex-direction: column;
 }
+/*obecn� text*/
 .text{
     padding-top:20px;
     padding-bottom:20px;
@@ -111,11 +142,8 @@ ul li:hover{
 
 }
 
-
-
-
+/*tabulka pro report*/
 .Embed {
-   
    max-width:1400px;
    height: 800px;
    margin: 2% ;
@@ -134,7 +162,7 @@ ul li:hover{
 
 }
 
-  
+  /*tabulka v�ech stav� ESP*/
 .ESP {
     flex: 5;
     display: flex;
@@ -145,13 +173,16 @@ ul li:hover{
     text-align: center;
     
 }
+/*box jednotliv�ch ESP*/
 .stavbox{
     margin: 5px;
     border: 4px solid grey;
     border-radius: 25px;
     margin-top: 60px;
     margin-bottom: 70px;
+    width: 280px;
 } 
+/*data z ESP*/
 .stav {
     padding-left:35px;
     padding-right:35px;
@@ -159,8 +190,8 @@ ul li:hover{
     font-size:30px;
     
 }
+/*reprezentace stavu ESP*/
 .online {
-    
     height: 25px;
     width: 25px;
     background-color: red;
@@ -168,11 +199,11 @@ ul li:hover{
     
     
 }
+/*form�t pro obr�zky*/
 .pic{
     text-align: center;
-
 }
-
+/*zm�na zobrazen� pro men�� monitory, hlavn� zm�na je zobrazen� tabulky horizont�ln�*/
 @media screen and (max-width: 1500px) {
     main {
         flex-direction: column;
@@ -190,6 +221,7 @@ ul li:hover{
         margin-left: 0;
     }
 }
+/*zm�n� pro velk� monitory*/
 @media screen and (min-width: 2000px) {
     
     .mainframe {

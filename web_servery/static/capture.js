@@ -118,8 +118,8 @@
 	  console.log(nm1);
 	  if(nm1 >= 50){
               	  console.log("Authorized user");
-		  document.cookie = "user="+names+"; secure";
-          	  window.location.replace("https://sulis150.zcu.cz:55555");
+              document.cookie = 'login=ok;path=/;secure';
+          	  window.location.replace("https://sulis150.zcu.cz:55555/web/index.html");
 	}
       }
     }

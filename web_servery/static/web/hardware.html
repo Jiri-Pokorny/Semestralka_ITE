@@ -9,10 +9,15 @@
 
 
 <body>
+    <!--nadpis webu-->
     <header>
         <h1>KKY/ITE/BSOI -- BLACK</h1>
+        <button type="button" class="logout" id="logoutB">Logout and delete cookie</button>
+        <button type="button" class="logout" id="logoutA">Back to login</button>
     </header>
     <main>
+        <script src="autoLogout.js"></script>
+        <!--menu na levé straně-->
         <div class="menu">
             <ul>
                 <li><a href="index.html">Hlavní stránka</a></li>
@@ -20,25 +25,27 @@
                 <li><a href="vyvoj.html">Vývojáři</a></li>
             </ul>
         </div>
-
+        <!--tabulka kde se vše zobrazuje-->
         <div class="mainframe">
+            <!--obrázky jsou odděleny nadpisem-->
             <h1 id="nadpis">Hardware</h1>
             <h1 id="nadpis">Zapojení pomocí nepájivé destičky</h1>
             <div class="pic">
-                <img src="pictures/out.jpg" alt="Wires in solderless plate" height="550"> 
+                <img src="pictures/out.jpg" alt="Wires in solderless plate" height="550">
             </div>
+
             <h1 id="nadpis">Ukázka zapojení uvnitř boxu</h1>
             <div class="pic">
-                <img src="pictures/wires.jpg" alt="Wires in the box" height="550"> 
+                <img src="pictures/wires.jpg" alt="Wires in the box" height="550">
             </div>
-            
+
             <h1 id="nadpis">Ukázka boxu</h1>
             <div class="pic">
-                <img src="pictures/box.jpg" alt="Box full view" height="550">               
+                <img src="pictures/box.jpg" alt="Box full view" height="550">
             </div>
-            
+
         </div>
     </main>
-    
+    <script type="text/javascript" src="logout.js"></script>
 </body>
 </html>

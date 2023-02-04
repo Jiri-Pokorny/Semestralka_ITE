@@ -4,11 +4,13 @@
 	<title>Take picture using WebRTC</title>
 	<meta charset='utf-8'>
 	<link rel="stylesheet" href="static/main.css" type="text/css" media="all">
-	<script src="static/capture.js"></script>
 	<script src="static/myFunctions.js"></script>
+	<script src="static/capture.js">
+	</script>
 </head>
 <body>
 <div class="contentarea">
+  <div id="box">
 	<h1>
 		Take picture using WebRTC
 	</h1>
@@ -16,15 +18,19 @@
     <video id="video">Video stream not available.</video>
   </div>
   <div class="buttons">
-    <button id="startbutton">Take photo</button> 
-    <button id="recognizebutton">Recognize</button> 
+    <button id="startbutton" class="button">Take photo</button> 
+    <button id="recognizebutton" class="button">Recognize</button> 
   </div>
   <div >
-    <button id="loginButton" class="button" onclick="redirect()">Manual login</button>
+    <button class="button"> <a href="https://sulis150.zcu.cz:55555/login/index.html">Manual login</a></button>
   </div>
   <p id="results"></p>
   <canvas id="canvas">
   </canvas>
 </div>
+</div>
+<div id="particles-js"></div>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css'></script>
+<script src='https://code.jquery.com/jquery-1.11.1.min.js'></script><script  src="static/script.js"></script>
 </body>
 </html>
